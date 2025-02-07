@@ -77,9 +77,12 @@ def run_all():
                     )
                     cursor.execute(sql, values)
                     # new add
-                    deri_trade.generate_deal(row,"CloseMarket",remaining_exposure)
+                    if row['Trade Status'] == "Fixed": # new feature, position is fixed but not closed.
+                        deri_trade.generate_deal(row,"Rollover",remaining_exposure)
+                    else:
+                        deri_trade.generate_deal(row,"CloseMarket",remaining_exposure)
                 # new add
-                elif deal_status == "Active":
+                elif if deal_status == "Active" or deal_status == "Fixed": # mature/liquidated/terminated do nothing
                     deri_trade.generate_deal(row,"Rollover",remaining_exposure)
                 #Else: # mature/liquidated/terminated -> mature/liquidated/terminated = None
 
