@@ -82,7 +82,7 @@ def run_all():
                     else:
                         deri_trade.generate_deal(row,"CloseMarket",remaining_exposure)
                 # new add
-                elif if deal_status == "Active" or deal_status == "Fixed": # mature/liquidated/terminated do nothing
+                elif deal_status == "Active" or deal_status == "Fixed": # mature/liquidated/terminated do nothing
                     deri_trade.generate_deal(row,"Rollover",remaining_exposure)
                 #Else: # mature/liquidated/terminated -> mature/liquidated/terminated = None
 
