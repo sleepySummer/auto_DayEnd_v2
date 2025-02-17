@@ -32,7 +32,7 @@ class DealStatus:
         if comm_type == "Rollover":
             return None
         else:
-            return datetime.strptime(mature, "%Y-%m-%d").strftime("%Y%m%d")
+            return datetime.strptime(mature, "%Y-%m-%d").strftime("%Y%m%d") + "\x01" # SOH at the back of the valuedate
 
     def indicator_input(self,comm_type,product):
         if comm_type == "Rollover":
@@ -41,6 +41,13 @@ class DealStatus:
             return "FWD"
         elif product == "FX Accumulator":
             return "AC"
+
+    # new add method
+    def close_price_input(self,comm_type):
+        if comm_type == "CloseMarket":
+            return 1
+        else:
+            return 0
 
 
 
@@ -57,7 +64,7 @@ class DealStatus:
 
         
         new_row = {
-            'Command Time': datetime.today().strftime("%m/%d/%Y") + " 05:59:59" + " AM",
+            'Command Time': datetime.today().strftime("%m/%d/%Y") + " 05:59:59" + " AM", # CloseMarket need manual edit as no data provide
             'Creation Time': trade_date + " " + trade_time,
             'Order #': row['Our Ref'],
             'Name': row['Account No.'],
@@ -72,7 +79,7 @@ class DealStatus:
             'CCY MM': "USD",
             'Maintenance Margin': row['IM to input on dealist'],
             'Open Price': 1,
-            'Close Price': 0,
+            'Close Price': self.close_price_input(CommandType), # fix close price not always 0
             'Transaction Fee': 0,
             'Rollover': 0,
             'PnL': 0,

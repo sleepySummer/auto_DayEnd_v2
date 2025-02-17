@@ -1,11 +1,24 @@
 import pandas as pd
 import logging    # pyhton build-in Lib
 import csv
+import xlrd
+import win32com.client
+import os
 
 fxdr_path = "T:\\FXDR\\FXDR_v5.xlsm"
 
+def refresh_file(file):
+    xlapp = win32com.client.DispatchEx("Excel.Application")
+    path = os.path.abspath(file)
+    wb =  xlapp.Workbooks.Open(path)
+    wb.RefreshAll()
+    xlapp.CalculateUntilAsyncqueriesDone()
+    wb.Save()
+    xlapp.Quit()
+
 def load_bal_data(file_path):
     try:
+        refresh_file(fxdr_path)
         dtype_spec = {
             'Our Ref': str,
             'Account No.': str
