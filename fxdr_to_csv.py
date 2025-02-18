@@ -1,7 +1,6 @@
 import pandas as pd
 import logging    # pyhton build-in Lib
 import csv
-import xlrd
 import win32com.client
 import os
 
@@ -18,7 +17,7 @@ def refresh_file(file):
 
 def load_bal_data(file_path):
     try:
-        refresh_file(fxdr_path)
+        refresh_file(file_path)
         dtype_spec = {
             'Our Ref': str,
             'Account No.': str
