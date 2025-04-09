@@ -11,6 +11,19 @@ import schedule
 import edit_csv as ec
 import fxdr_to_sql_v2 as fxdr
 import config
+import logging
+import os
+
+log_folder = "C:\\Users\\Ichi\\Desktop\\quick_py\\partial\\"
+log_file = "error_log.txt"
+
+os.makedirs(log_folder, exist_ok=True)
+
+logging.basicConfig(
+    filename=os.path.join(log_folder, log_file),
+    level=logging.ERROR,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 def web_login():
 
@@ -85,8 +98,11 @@ def download_csv():
             
             
             
+try:
+    web_login() 
 
-web_login() 
+    download_csv()
+except Exception as e:
+    logging.error(f"An unexpected error occurred: {e}")
 
-download_csv()
 
