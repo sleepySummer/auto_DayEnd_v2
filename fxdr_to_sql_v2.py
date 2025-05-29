@@ -3,6 +3,9 @@ import pandas as pd
 import deal_status as ds
 import fxdr_to_csv as dr
 import config
+import logging
+import os
+import error_log_config
 
 def run_all():
 
@@ -130,5 +133,5 @@ def run_all():
         deri_trade.save_to_csv()
         
     except Exception as e:
-        print(f"An error occurred: {e}")
+        logging.error(f"An unexpected error occurred: {e}")
 
