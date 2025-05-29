@@ -108,6 +108,7 @@ def run_all():
                 )
                 cursor.execute(sql, values)
                 # new add
+                remaining_exposure = row['Remaining Exposure']
                 deri_trade.generate_deal(row,"OpenMarket",remaining_exposure)
                 deri_trade.generate_deal(row,"Rollover",remaining_exposure)
                 

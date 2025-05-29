@@ -64,7 +64,7 @@ class DealStatus:
 
         
         new_row = {
-            'Command Time': datetime.today().strftime("%m/%d/%Y") + " 05:59:59" + " AM", # CloseMarket need manual edit as no data provide
+            'Command Time': datetime.today().strftime("%m/%d/%Y") + " 04:59:59" + " AM", # CloseMarket need manual edit as no data provide
             'Creation Time': trade_date + " " + trade_time,
             'Order #': row['Our Ref'],
             'Name': row['Account No.'],
