@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 
-exclude_strings = ['HouseTest_itradeuse','Test Audit 1','Test Audit 2','Test Audit 3','Test FX','Test IT']
+exclude_strings = ['HouseTest_itradeuse','Test Audit 1','Test Audit 2','Test Audit 3','Test FX','Test IT','Tony Leung']
 
 ################
 # with open(),open(): allow input/output both done in the loop 
