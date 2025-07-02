@@ -76,7 +76,7 @@ pip install -r requirements.txt
 - **cerror_log_config.py:** Initializes error logging to error_log.txt.
 
 ## Workflow
-(etl_chart.png)
+![Workflow](etl_chart.png)
 
 ## Modules
 
