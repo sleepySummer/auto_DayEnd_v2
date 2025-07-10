@@ -12,7 +12,7 @@ def run_all():
     try:
         from mysql.connector import (connection)
 
-        print("starting")
+        logging.info("Connecting to MySQL database")
         # MySQL connection
         db = connection.MySQLConnection(
             host="localhost",  # Replace with your MySQL host
@@ -20,13 +20,13 @@ def run_all():
             password=config.mysql_password,  # Replace with your MySQL password
             database="myDB"  # Replace with your MySQL database name
         )
-        print("connect success")
+        logging.info("Database connection successful")
 
         cursor = db.cursor()
 
         # testing
         dr.basic_run() # return "current_deal.csv" in folder
-        print("testing ok!")
+        logging.info("current_deal.csv read successfully")
 
         # Read the CSV file into a pandas DataFrame
         df = pd.read_csv('C:\\Users\\Ichi\\Desktop\\quick_py\\partial\\fxdr\\current_deal.csv') 
@@ -117,18 +117,18 @@ def run_all():
                 
         
         
-        print("insert/update success!")
+        logging.info("Insert/update operations completed")
 
         # Commit the transaction
         db.commit()
 
-        print("commit success!")
+        logging.info("Committing changes to database")
         
         # Close the connection
         cursor.close()
         db.close()
 
-        print("FINISH")
+        logging.info("MySQL disconnected successfully")
 
         deri_trade.save_to_csv()
         

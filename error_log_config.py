@@ -8,6 +8,6 @@ os.makedirs(log_folder, exist_ok=True)
 
 logging.basicConfig(
     filename=os.path.join(log_folder, log_file),
-    level=logging.ERROR,
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )

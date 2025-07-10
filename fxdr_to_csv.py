@@ -3,6 +3,7 @@ import logging    # pyhton build-in Lib
 import csv
 import win32com.client
 import os
+import error_log_config
 
 fxdr_path = "T:\\FXDR\\FXDR_v5.xlsm"
 

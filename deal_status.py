@@ -2,6 +2,7 @@ import pandas as pd
 import csv
 from datetime import datetime, timedelta
 import logging
+import error_log_config
 
 class DealStatus:
     def __init__(self):
@@ -54,11 +55,7 @@ class DealStatus:
     # fxdr into deallist
     def generate_deal(self, row, CommandType, starting_notional):
 
-    #for i, row in df.iterrows():
-
-        # don't know why read in row['Trade Date] in this "%Y-%m-%d" but in displace is "%d/%m/%Y"
-        # .strptime(): parse string into datetime obj.
-        # .strftime(): datetime obj. into string
+    try:
         trade_date = datetime.strptime(row['Trade Date'], "%Y-%m-%d").strftime("%m/%d/%Y")
         trade_time = datetime.strptime(row['Deal time '], "%H:%M:%S").strftime("%I:%M:%S %p")
 
@@ -93,8 +90,9 @@ class DealStatus:
         }
         # Append the new row to df3
         self.df3 = pd.concat([self.df3, pd.DataFrame([new_row])], ignore_index=True)
-
-
+    except Exception as e:
+        logging.error(f"Error generating deal for Order #{row['Our Ref']}: {e}", exc_info=True)
+        raise
 
     def save_to_csv(self):
         self.df3.to_csv('new_testdeal.csv', index=False, quoting=csv.QUOTE_ALL)
