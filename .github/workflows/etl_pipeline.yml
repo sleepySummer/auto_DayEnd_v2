@@ -1,4 +1,4 @@
-name: Run ETL Pipeline
+name: CI - Python ETL Project
 
 on:
   push:
@@ -6,11 +6,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-etl:
-    runs-on: window-latest
+  build:
+    runs-on: windows-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Set up Python
@@ -22,6 +22,5 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: Run pipeline
-      run: |
-        python cmd_app.py
+    - name: Complete
+      run: echo "CI setup complete. Full pipeline execution skipped due to private data."
