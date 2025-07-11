@@ -14,7 +14,7 @@ This project implements a robust **ETL pipeline** for automating the extraction,
 - [ETL Workflow](#etl-workflow)
 - [Modules](#Modules)
 - [Project Structure](#project-structure)
-- License(#license)
+- [License](#license)
 
 ---
 
