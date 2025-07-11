@@ -12,9 +12,9 @@ This project implements a robust **ETL pipeline** for automating the extraction,
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [ETL Workflow](#etl-workflow)
-- Modules
-- Contributing
-- License
+- [Modules](#Modules)
+- [Project Structure](#Project Structure)
+- License(#License)
 
 ---
 
@@ -130,7 +130,6 @@ pip install -r requirements.txt
 ├── fxdr_to_sql_v2.py                  # Loader module to write cleaned data to SQL
 ├── main_cmd.py                        # Initial script (used in scheduler)
 ├── requirements.txt                   # Python dependencies
-
 
 ## License
 - Copyright (c) 2024 [Ian Chi]
