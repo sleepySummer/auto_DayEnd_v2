@@ -106,6 +106,32 @@ pip install -r requirements.txt
 ### error_log_config.py – Logging
 - Configures centralized error logging.
 
+## Project Structure
+
+├── .github/
+│   └── workflows/
+│       └── etl_pipeline.yml           # GitHub Actions CI/CD workflow
+│
+├── docs/
+│   └── autodayend_etl_pipeline.png   # Final ETL flowchart diagram
+│
+├── .gitignore                         # Git ignored files list
+├── README.md                          # Project documentation
+├── README_backup.md                   # Backup copies of README
+├── README_1_backup.MD
+│
+├── cmd_app.py                         # Main controller to orchestrate all ETL scripts
+├── data_architecture.png              # Data architecture visual
+├── deal_status.py                     # Check & update FX deal status post-ETL
+├── edit_csv.py                        # Transform logic to clean/edit CSV data
+├── error_log_config.py                # Centralized error logging setup
+├── etl_chart.png                      # ETL chart or draft diagram
+├── fxdr_to_csv.py                     # Extractor from Excel → CSV
+├── fxdr_to_sql_v2.py                  # Loader module to write cleaned data to SQL
+├── main_cmd.py                        # Initial script (used in scheduler)
+├── requirements.txt                   # Python dependencies
+
+
 ## License
 - Copyright (c) 2024 [Ian Chi]
 
