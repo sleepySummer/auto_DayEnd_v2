@@ -15,7 +15,7 @@ def cmd_line():
 
 def get_season_input():
     while True:
-        season = input("Summer/Winter?")
+        season = input("Summer/Winter?: ")
         if season in ["Summer", "Winter"]:
             return season
         else:

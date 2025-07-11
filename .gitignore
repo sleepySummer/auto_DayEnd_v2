@@ -1,5 +1,6 @@
 *.csv
 *.jpg
-*.txt
+error_log.txt
+expressions.txt
 config.py
 __pycache__/
